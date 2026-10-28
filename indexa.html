@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>DripVault – дрехи, чанти и козметика</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&family=Manrope:wght@400;600;700&display=swap&subset=cyrillic" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff3f8; --surface:#ffffff; --ink:#2a0f1f; --muted:#7a5568;
+  --pink:#f6b3d0; --berry:#d81b72; --lime:#d8f55a; --line:#f0cddd;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#1d0b15; --surface:#2b1120; --ink:#ffe9f3; --muted:#c9a0b5; --line:#4a2338;}
+}
+:root[data-theme="dark"]{--bg:#1d0b15; --surface:#2b1120; --ink:#ffe9f3; --muted:#c9a0b5; --line:#4a2338;}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Manrope,system-ui,sans-serif}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--berry);outline-offset:3px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Unbounded,Manrope,sans-serif;margin:0;line-height:1.05}
+
+/* hero */
+.hero{padding:44px 0 56px;position:relative;overflow:hidden}
+.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:36px;font-weight:700}
+.logo{font-family:Unbounded,sans-serif;font-weight:800;font-size:18px;text-decoration:none}
+.top a.btn-s{font-size:14px;text-decoration:none;border:2px solid var(--ink);padding:8px 14px;border-radius:99px}
+h1{font-weight:800;font-size:clamp(54px,15vw,148px);letter-spacing:-.04em;text-transform:uppercase}
+h1 span{display:block}
+h1 .again{color:var(--berry);margin-left:.45em}
+.lead{max-width:30ch;font-size:clamp(18px,3vw,22px);margin:22px 0 28px;font-weight:600}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:700;padding:15px 24px;border-radius:99px;background:var(--berry);color:#fff;border:2px solid var(--berry)}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--ink)}
+.tag{position:absolute;right:max(14px,4vw);top:120px;width:150px;background:var(--lime);color:#2a0f1f;border-radius:14px 14px 14px 14px;padding:34px 14px 16px;text-align:center;transform-origin:50% -60px;transform:rotate(9deg);animation:swing 2.4s ease-out 1;box-shadow:0 8px 0 rgba(0,0,0,.12)}
+.tag::before{content:"";position:absolute;left:50%;top:12px;width:14px;height:14px;margin-left:-7px;border-radius:50%;background:var(--bg);border:2px solid #2a0f1f}
+.tag b{display:block;font:800 40px/1 Unbounded,sans-serif}
+.tag small{font-weight:700;font-size:13px}
+@keyframes swing{0%{transform:rotate(-24deg)}30%{transform:rotate(18deg)}55%{transform:rotate(1deg)}75%{transform:rotate(12deg)}100%{transform:rotate(9deg)}}
+@media (max-width:620px){.tag{width:112px;top:96px;padding:28px 10px 12px}.tag b{font-size:28px}}
+@media (prefers-reduced-motion:reduce){.tag{animation:none}html{scroll-behavior:auto}}
+
+/* strip */
+.strip{background:var(--ink);color:var(--bg);padding:14px 0;overflow:hidden;white-space:nowrap}
+.strip p{margin:0;font:800 15px Unbounded,sans-serif;display:flex;gap:28px;justify-content:center;flex-wrap:wrap;white-space:normal}
+
+section{padding:64px 0}
+h2{font-size:clamp(28px,5vw,44px);letter-spacing:-.02em;margin-bottom:12px}
+.sub{color:var(--muted);margin:0 0 30px;max-width:46ch}
+
+/* categories */
+.cats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.cat{border-radius:26px;padding:22px 18px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;font:800 clamp(16px,3.4vw,26px)/1.1 Unbounded,sans-serif}
+.cat span{font:600 14px Manrope,sans-serif;margin-top:6px;opacity:.8}
+.c1{background:var(--pink);color:#2a0f1f;border-radius:26px 26px 90px 26px}
+.c2{background:var(--berry);color:#fff;border-radius:90px 26px 26px 26px}
+.c3{background:var(--lime);color:#2a0f1f;border-radius:26px 90px 26px 26px}
+@media (max-width:620px){.cats{grid-template-columns:1fr}.cat{min-height:110px}}
+
+/* products */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.card{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:14px;min-height:190px}
+.card .what{font-weight:700;font-size:17px;line-height:1.3}
+.card .meta{color:var(--muted);font-size:14px;margin-top:4px}
+.price{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.price b{font:800 28px Unbounded,sans-serif;color:var(--berry)}
+.price a{font-weight:700;font-size:14px;border:2px solid var(--ink);border-radius:99px;padding:7px 13px;text-decoration:none}
+.card.hot{background:var(--lime);border-color:var(--lime);color:#2a0f1f}
+.card.hot .meta{color:#3b2a14}.card.hot .price b{color:#2a0f1f}.card.hot .price a{border-color:#2a0f1f}
+.note{margin-top:22px;color:var(--muted);font-size:15px}
+
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding:0;margin:0;list-style:none;counter-reset:s}
+.steps li{counter-increment:s;background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:20px}
+.steps li::before{content:counter(s);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--berry);color:#fff;font:800 16px Unbounded,sans-serif;margin-bottom:12px}
+.steps b{display:block;font-size:18px;margin-bottom:4px}
+@media (max-width:760px){.steps{grid-template-columns:1fr}}
+
+/* contact */
+.contact{background:var(--pink);color:#2a0f1f;border-radius:34px;padding:clamp(28px,6vw,56px);margin-bottom:40px}
+.contact h2{font-size:clamp(30px,6vw,56px)}
+.contact p{max-width:40ch;font-weight:600}
+.contact .btn.alt{color:#2a0f1f;border-color:#2a0f1f}
+footer{padding:0 0 36px;color:var(--muted);font-size:14px;text-align:center}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="top">
+      <a class="logo" href="#">dripvault</a>
+      <a class="btn-s" href="#kontakt">Поръчай</a>
+    </div>
+    <h1><span>Drip</span><span class="again">Vault</span></h1>
+    <p class="lead">Дрехи, чанти и козметика на цени, от които няма да ти е жал.</p>
+    <div class="cta">
+      <a class="btn" href="#nahodki">Виж находките</a>
+      <a class="btn alt" href="https://www.tiktok.com/@dripvault06" target="_blank" rel="noopener">Следвай в TikTok</a>
+    </div>
+  </div>
+  <div class="tag" aria-hidden="true"><small>дънки от</small><b>5€</b><small>разпродажба</small></div>
+</header>
+
+<div class="strip"><div class="wrap"><p><span>Дрехи</span><span>Чанти</span><span>Козметика</span><span>Доставка с Еконт</span></p></div></div>
+
+<section>
+  <div class="wrap">
+    <h2>Какво ще намериш</h2>
+    <p class="sub">Нови видеа в TikTok всеки път, когато пристигне нова бройка.</p>
+    <div class="cats">
+      <div class="cc cat c1">Дрехи<span>Комплекти, дънки, елечета</span></div>
+      <div class="cc cat c2">Чанти<span>Малко бройки, бързо свършват</span></div>
+      <div class="cc cat c3">Козметика<span>Пиши за наличности</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="nahodki" style="padding-top:0">
+  <div class="wrap">
+    <h2>Последни находки</h2>
+    <p class="sub">Цените са в евро. Наличностите се менят – пиши ни, преди да поръчаш.</p>
+    <div class="grid">
+      <article class="card hot"><div><div class="what">Дънки – разпродажба</div><div class="meta">Различни модели</div></div><div class="price"><b>5–10€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Комплект Prada тип прашка</div><div class="meta">Последната бройка, с разбер</div></div><div class="price"><b>25€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Комплект Dior</div><div class="meta">Размер L/XL</div></div><div class="price"><b>25€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Комплект Karl</div><div class="meta">Karl Lagerfeld стил</div></div><div class="price"><b>25€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Дънки</div><div class="meta">Размер S/M</div></div><div class="price"><b>20€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Елече</div><div class="meta">Размер S/M</div></div><div class="price"><b>23€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Комплект</div><div class="meta">Промоция</div></div><div class="price"><b>37€</b><a href="#kontakt">Питай</a></div></article>
+      <article class="card"><div><div class="what">Клинче с повдигащ ефект</div><div class="meta">Черно, с принт</div></div><div class="price"><b>7€</b><a href="#kontakt">Питай</a></div></article>
+    </div>
+    <p class="note">Всички снимки и видеа са в TikTok профила @dripvault06.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <h2>Как се поръчва</h2>
+    <p class="sub">Три стъпки, без регистрация.</p>
+    <ol class="steps">
+      <li><b>Избери</b>Намери нещо във видеата в TikTok или в находките по-горе.</li>
+      <li><b>Пиши ни</b>Изпрати съобщение в TikTok или се обади. Кажи размер и адрес.</li>
+      <li><b>Получи с Еконт</b>Изпращаме до офис или адрес и ти пишем, когато пратката тръгне.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="kontakt" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <h2>Пиши ни на лично за поръчка</h2>
+      <p>Обади се или ни намери в TikTok. Отговаряме на съобщения всеки ден.</p>
+      <div class="cta" style="margin-top:22px">
+        <a class="btn" href="tel:+359878882846">Обади се: 0878 882 846</a>
+        <a class="btn alt" href="https://www.tiktok.com/@dripvault06" target="_blank" rel="noopener">@dripvault06</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap">© DripVault · Fashion &amp; Beauty</div></footer>
+</body>
+</html>
